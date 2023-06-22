@@ -5,13 +5,13 @@ data:
     This is my configuration file...pranit here !!
 kind: ConfigMap
 metadata:
-  name: config-pranit
+  name: config-pranit-az
 
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: secret-pd
+  name: secret-pd-az
 type: Opaque
 data:
   username: cHJhbml0
@@ -21,7 +21,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment-pd
+  name: nodeapp-deployment-pd-az
   labels:
     app: nodeapp
 spec:
@@ -47,19 +47,19 @@ spec:
       volumes:
         - name: testconfigmap
           configMap:
-            name: config-pranit
+            name: config-pranit-az
             items:
               - key: pranit.conf
                 path: pranit.conf
         - name: testsecret
           secret:
-            secretName: secret-pd
+            secretName: secret-pd-az
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-svc-pd
+  name: nodeapp-svc-pd-az
 spec:
   selector:
     app: nodeapp
