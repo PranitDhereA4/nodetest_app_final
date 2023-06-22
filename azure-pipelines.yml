@@ -49,7 +49,7 @@ steps:
 
       action: deploy
 
-      kubernetesServiceConnection: 'kube'
+      kubernetesServiceConnection: 'kube-dp'
 
       manifests: |
 
